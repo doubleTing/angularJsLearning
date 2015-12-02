@@ -1,6 +1,6 @@
 使用ng-switch
 <tr ng-repeat="i in list">
-	<td ng-switch="i.gender">
+<td ng-switch="i.gender">
 <span ng-switch-when="M">M</span>
 <span ng-switch-when="F">F</span>
 <span ng-switch-when="N">N</span>
