@@ -1,4 +1,4 @@
-使用ng-switch
+=====使用ng-switch=====
 <tr ng-repeat="i in list">
 	<td ng-switch="i.gender">
 	<span ng-switch-when="M">${msg.userinfo_gender_male}</span>
@@ -33,3 +33,9 @@ DOM结构渲染结果：
 	<!-- ngSwitchWhen: N -->
 	<span ng-switch-other=""></span>
 </td>
+
+
+=====使用ng-if=====
+<td ng-if="i.gender=='F'">F</td>
+<td ng-if="i.gender=='N'">N</td>
+<td ng-if="i.gender=='M'">M</td>
