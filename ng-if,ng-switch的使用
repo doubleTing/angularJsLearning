@@ -1,35 +1,35 @@
 使用ng-switch
 <tr ng-repeat="i in list">
-<td ng-switch="i.gender">
-<span ng-switch-when="M">M</span>
-<span ng-switch-when="F">F</span>
-<span ng-switch-when="N">N</span>
-<span ng-switch-other></span>
-</td>
+	<td ng-switch="i.gender">
+	<span ng-switch-when="M">M</span>
+	<span ng-switch-when="F">F</span>
+	<span ng-switch-when="N">N</span>
+	<span ng-switch-other></span>
+	</td>
 </tr>
 【容易掉的坑】：<td ng-switch="{{i.gender}}">
 DOM结构渲染结果：
 <td ng-switch="F">
-<!-- ngSwitchWhen: M -->
-<!-- ngSwitchWhen: F -->
-<!-- ngSwitchWhen: N -->
-<span ng-switch-other=""></span>
+	<!-- ngSwitchWhen: M -->
+	<!-- ngSwitchWhen: F -->
+	<!-- ngSwitchWhen: N -->
+	<span ng-switch-other=""></span>
 </td>
 将数据库的值改为1/0就生效，无法对string进行判断，number没有问题
 同样的问题http://stackoverflow.com/questions/27267186/whats-a-different-between-ng-switch-when-string-and-ng-switch-when-number
 【正确的写法】<td ng-switch="'{{i.gender}}'">，将获取的值再加引号，转为string
 DOM结构渲染结果：
 <td ng-switch="'F'">
-<!-- ngSwitchWhen: M -->
-<!-- ngSwitchWhen: F --><span ng-switch-when="F" class="ng-scope">女</span><!-- end ngSwitchWhen: -->
-<!-- ngSwitchWhen: N -->
-<span ng-switch-other=""></span>
+	<!-- ngSwitchWhen: M -->
+	<!-- ngSwitchWhen: F --><span ng-switch-when="F" class="ng-scope">女</span><!-- end ngSwitchWhen: -->
+	<!-- ngSwitchWhen: N -->
+	<span ng-switch-other=""></span>
 </td>
 或者直接写为<td ng-switch="i.gender">
 DOM结构渲染结果：
 <td ng-switch="i.gender">
-<!-- ngSwitchWhen: M -->
-<!-- ngSwitchWhen: F --><span ng-switch-when="F" class="ng-scope">女</span><!-- end ngSwitchWhen: -->
-<!-- ngSwitchWhen: N -->
-<span ng-switch-other=""></span>
+	<!-- ngSwitchWhen: M -->
+	<!-- ngSwitchWhen: F --><span ng-switch-when="F" class="ng-scope">女</span><!-- end ngSwitchWhen: -->
+	<!-- ngSwitchWhen: N -->
+	<span ng-switch-other=""></span>
 </td>
